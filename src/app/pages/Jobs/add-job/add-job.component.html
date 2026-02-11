@@ -1,0 +1,62 @@
+<div class="content-container mt-5">
+<h5>{{'Add' |translate}} {{'Job' |translate}}
+  </h5>
+  <hr/>
+  <form [formGroup]="JobForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm-6">
+        <!--Law number -->
+        <div class="form-group">
+          <label for="Job" class="label">
+            <h6>
+             {{ "Job" | translate }}
+            </h6>
+          </label>
+          <input
+            type="text"
+            [status]="fc.job.touched && fc.job.errors ? 'danger' : 'basic'"
+            formControlName="job"
+            nbInput
+            shape="round"
+            fullWidth
+            id="job"
+          />
+          <mat-error *ngIf="fc.job.touched && fc.job.hasError('required')">
+            {{ "Job is Required" | translate }}
+          </mat-error>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <!--Message arabic -->
+        <div class="form-group">
+          <label for="JobDesc" class="label">
+            <h6>
+              {{ "JobDesc" | translate }}
+            </h6>
+          </label>
+          <textarea
+            type="text"
+            formControlName="jobDesc"
+            nbInput
+            shape="round"
+            fullWidth
+            id="jobDesc"
+          >
+          </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-2">
+        <button
+          class="special-button m-2 mt-4 w-100"
+          [disabled]="JobForm.invalid || isSubmitted"
+          type="submit"
+        >
+          {{ "Save" | translate }}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
