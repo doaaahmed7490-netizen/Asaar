@@ -84,8 +84,8 @@ import { SharedModule } from '../../shared/components/shared.module';
     NbDialogService // should add here
     ,ConfirmationDialogService
   ]
-,
-  entryComponents: [ ConfirmationDialogComponent ],
+//,
+//  entryComponents: [ ConfirmationDialogComponent ],
 
 
 })

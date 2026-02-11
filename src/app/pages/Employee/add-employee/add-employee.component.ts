@@ -3,10 +3,10 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DepartmentModel } from '../../../models/Departments/Department.model';
-import { JobModel } from '../../../models/Job/job.model';
+//import { JobModel } from '../../../models/Job/job.model';
 import { DepartmentService } from '../../../services/department.service';
 import { EmployeeService } from '../../../services/employee.service';
-import { JobService } from '../../../services/job.service';
+//import { JobService } from '../../../services/job.service';
 import { ToastrService } from '../../../services/toastr.service';
 import { EntityNames } from '../../../shared/Entity-Names';
 
@@ -20,7 +20,7 @@ export class AddEmployeeComponent implements OnInit {
     private formBuilder: FormBuilder,
     private empService: EmployeeService,
     private deptService: DepartmentService,
-    private jobService: JobService,
+   // private jobService: JobService,
 
     private router: Router,
     private route: ActivatedRoute,
@@ -39,11 +39,11 @@ export class AddEmployeeComponent implements OnInit {
   showPass = false;
   departments: DepartmentModel[] = [];
 
-  Jobs: JobModel[] = [];
+ // Jobs: JobModel[] = [];
   ngOnInit() {
     this.initForm();
     this.getDepartmenst();
-this.getJobs();
+//this.getJobs();
   }
  
   getDepartmenst() {
@@ -57,7 +57,7 @@ this.getJobs();
       });
   }
 
-   
+ /*  
   getJobs() {
     this.jobService
       .searchJobs({
@@ -67,7 +67,7 @@ this.getJobs();
       .subscribe((res) => {
         this.Jobs = res.entity.entities.filter(x=>x.jobName!='');
       });
-  }
+  }*/
   initForm() {
     this.empForm = this.formBuilder.group({
      
@@ -87,7 +87,7 @@ this.getJobs();
       ,Validators.maxLength(12)]],
       email:[""],
       notes:[""],
-      jobId:[null],
+     // jobId:[null],
       deptId: [null, [Validators.required]],
       //deptIds: this.formBuilder.array([]),
 

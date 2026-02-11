@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { id } from 'esri/layers/support/VoxelVariable';
 import { retryWhen } from 'rxjs';
 import { DepartmentModel } from '../../../models/Departments/Department.model';
 import { employee } from '../../../models/Employee/Employee.model';
-import { JobModel } from '../../../models/Job/job.model';
+//import { JobModel } from '../../../models/Job/job.model';
 import { DepartmentService } from '../../../services/department.service';
 import { EmployeeService } from '../../../services/employee.service';
-import { JobService } from '../../../services/job.service';
+//import { JobService } from '../../../services/job.service';
 import { ToastrService } from '../../../services/toastr.service';
 import { EntityNames } from '../../../shared/Entity-Names';
 @Component({
@@ -28,8 +27,8 @@ export class EditEmployeeComponent implements OnInit {
 
     private toastrService: ToastrService,
     private translate: TranslateService,
-    private departmentService: DepartmentService,
-    private jobService: JobService
+    private departmentService: DepartmentService
+   // private jobService: JobService
 
   ) {
     if(localStorage.getItem("token")==null||localStorage.getItem("token")=='')
@@ -43,12 +42,12 @@ export class EditEmployeeComponent implements OnInit {
   Id: string;
   currentEmp:employee;
   departments: DepartmentModel[] = [];
-  Jobs: JobModel[] = [];
+ // Jobs: JobModel[] = [];
 
   ngOnInit() {
     this.initForm();
     this.getDepartmenst();
-    this.getJobs();
+ //   this.getJobs();
     this.route.params.subscribe((params) => {
       this.Id = params["id"];
 
@@ -75,7 +74,7 @@ export class EditEmployeeComponent implements OnInit {
     this.empForm.controls["nationalId"].setValue(this.currentEmp.nationalId);
     this.empForm.controls["mobil"].setValue(this.currentEmp.mobil);
     this.empForm.controls["phone"].setValue(this.currentEmp.phone);
-    this.empForm.controls["jobId"].setValue(this.currentEmp.jobId);
+  //  this.empForm.controls["jobId"].setValue(this.currentEmp.jobId);
     this.empForm.controls["email"].setValue(this.currentEmp.email);
 
 
@@ -93,7 +92,7 @@ export class EditEmployeeComponent implements OnInit {
       });
   }
 
-   
+   /*
   getJobs() {
     this.jobService
       .searchJobs({
@@ -103,7 +102,7 @@ export class EditEmployeeComponent implements OnInit {
       .subscribe((res) => {
         this.Jobs = res.entity.entities.filter(x=>x.jobName!='');
       });
-  }
+  }*/
   initForm() {
     this.empForm = this.formBuilder.group({
      
@@ -123,7 +122,7 @@ id:[""],
       ,Validators.maxLength(12)]],
       email:[""],
       notes:[""],
-      jobId:[null],
+     // jobId:[null],
       deptId: [null, [Validators.required]],
       //deptIds: this.formBuilder.array([]),
 

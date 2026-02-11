@@ -42,6 +42,6 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     }),
   ],
   exports: [ConfirmDialogComponent, PieChartComponent],
-  entryComponents: [ConfirmDialogComponent],
+ // entryComponents: [ConfirmDialogComponent],
 })
 export class SharedModule {}

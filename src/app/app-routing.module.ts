@@ -111,13 +111,12 @@ const routes: Routes = [
       //canActivate: [AuthGuard],
     },
 
-  {
+ /* {
     path: 'Jobs',
     loadChildren: () =>
       import('./pages/Jobs/Job.module').then((mod) => mod.JobModule),
-      //canActivate: [AuthGuard],
 
-  },
+  },*/
   {
     path: 'Employee',
     loadChildren: () =>

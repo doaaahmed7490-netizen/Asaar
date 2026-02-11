@@ -202,18 +202,17 @@
               {{ "Job" | translate }}
             </h6>
           </label>
-          <select
+    <!--       <select
             class="form-control"
             formControlName="jobId"
             id="jobId"
             style="font-size: 16px; height: 40px"
             (change)="selectChangeHandlerJob($event)"
           >
-            <!-- <option value="">{{ "No data selected" | translate }}</option> -->
             <option *ngFor="let job of Jobs" [value]="job.id">
               {{ job.jobName }}
             </option>
-          </select>
+          </select> -->
         </div>
       </div>
       <div class="col-sm-6">
