@@ -22,12 +22,12 @@ const routes: Routes = [
    // canActivate: [AuthGuard],
     redirectTo: 'dashboard',
   },
-  {
+ /* {
     path: 'form',
     loadChildren: () =>
       import('./pages/main/main.module').then((mod) => mod.MainModule),
       canActivate: [AuthGuard],
-    },
+    },*/
   {
     path: 'auth',
     loadChildren: () =>
@@ -43,13 +43,11 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () =>
       import('./pages/charts/charts.module').then((mod) => mod.ChartsModule),
-     // canActivate: [AuthGuard],
     },
-    {
+ /*   {
       path: 'dashboardRpt',
       loadChildren: () =>
         import('./pages/charts-report/chartsReport.module').then((mod) => mod.ChartsReportModule),
-       // canActivate: [AuthGuard],
       },
  
 
@@ -61,22 +59,20 @@ const routes: Routes = [
       import('./pages/District/district.module').then(
         (mod) => mod.DistrictModule
       ),
-     // canActivate: [AuthGuard],
     },
 
+*/
 
 
-
-
+/*
  
   {
     path: 'Users',
     loadChildren: () =>
       import('./pages/Users/user.module').then((mod) => mod.UserModule),
-      //canActivate: [AuthGuard],
 
   },
-
+*/
 
  
   {
@@ -96,20 +92,17 @@ const routes: Routes = [
     path: 'DocumentsTypes',
     loadChildren: () =>
       import('./pages/District/district.module').then((mod) => mod.DistrictModule),
-      //canActivate: [AuthGuard],
     },
-  {
+ /* {
     path: 'DirectiveGoals',
     loadChildren: () =>
       import('./pages/DirectiveGoals/directiveGoal.module').then((mod) => mod.DirectiveGoalModule),
-      //canActivate: [AuthGuard],
     },
   {
     path: 'Departments',
     loadChildren: () =>
       import('./pages/Departments/department.module').then((mod) => mod.DepartmentModule),
-      //canActivate: [AuthGuard],
-    },
+    },*/
 
  /* {
     path: 'Jobs',
@@ -117,32 +110,28 @@ const routes: Routes = [
       import('./pages/Jobs/Job.module').then((mod) => mod.JobModule),
 
   },*/
-  {
+  /*{
     path: 'Employee',
     loadChildren: () =>
       import('./pages/Employee/Emp.module').then((mod) => mod.EmpModule),
-      //canActivate: [AuthGuard],
 
   },
   {
     path: 'Services',
     loadChildren: () =>
       import('./pages/Services/Service.module').then((mod) => mod.ServiceModule),
-      //canActivate: [AuthGuard],
 
   },
   {
     path: 'Questions',
     loadChildren: () =>
       import('./pages/Questions/Question.module').then((mod) => mod.QuestionModule),
-      //canActivate: [AuthGuard],
 
   },
   {
     path: 'Survey',
     loadChildren: () =>
       import('./pages/Survey/Survey.module').then((mod) => mod.SurveyModule),
-      //canActivate: [AuthGuard],
 
   },
   {
@@ -154,11 +143,9 @@ const routes: Routes = [
     path: 'Roles',
     loadChildren: () =>
       import('./pages/Roles/role.module').then((mod) => mod.RoleModule),
-      //canActivate: [AuthGuard],
+   
 
-     // canActivate: [AuthGuard],
-
-  },
+  },*/
   /*{
     path: 'UserSurvey2',
     loadChildren: () =>
@@ -174,7 +161,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
